@@ -1,0 +1,83 @@
+<template>
+	
+	<div class="slds-box" style="max-width: 250px; background:#FFFFFF;">
+		<div class="slds-grid slds-wrap">
+			<div class="slds-col slds-size_4-of-4 slds-p-around_small">
+				<span><lightning-input type="number" disabled value={displayValue} maxlength="14"></lightning-input></span>
+				<!--<span>{numA} {operatorCharacter} {numB} = {result}</span>-->
+			</div>
+
+			<div class="slds-col slds-size_1-of-4 slds-p-around_small">
+				<span><lightning-button variant="destructive-text" label="AC" title="AC" onclick={handleClick} class="lwc-calculator-button" value="AC"></lightning-button></span>
+			</div>
+			<div class="slds-col slds-size_1-of-4 slds-p-around_small">
+				<span><lightning-button variant="destructive-text" label="C" title="C" onclick={handleClick} class="lwc-calculator-button" value="C"></lightning-button></span>
+			</div>
+			<div class="slds-col slds-size_1-of-4 slds-p-around_small">
+				<span><lightning-button variant="brand-outline" label="%" title="%" onclick={handleClick} class="lwc-calculator-button" value="MODULUS"></lightning-button></span>
+			</div>
+			<div class="slds-col slds-size_1-of-4 slds-p-around_small">
+				<span><lightning-button variant="brand-outline" label="+" title="+" onclick={handleClick} class="lwc-calculator-button" value="ADD"></lightning-button></span>
+			</div>
+
+
+			<div class="slds-col slds-size_1-of-4 slds-p-around_small">
+				<span><lightning-button label="7" title="7" onclick={handleClick} class="lwc-calculator-button" value="7"></lightning-button></span>
+			</div>
+			<div class="slds-col slds-size_1-of-4 slds-p-around_small">
+				<span><lightning-button label="8" title="8" onclick={handleClick} class="lwc-calculator-button" value="8"></lightning-button></span>
+			</div>
+			<div class="slds-col slds-size_1-of-4 slds-p-around_small">
+				<span><lightning-button label="9" title="9" onclick={handleClick} class="lwc-calculator-button" value="9"></lightning-button></span>
+			</div>
+			<div class="slds-col slds-size_1-of-4 slds-p-around_small">
+				<span><lightning-button variant="brand-outline" label="-" title="-" onclick={handleClick} class="lwc-calculator-button" value="SUBTRACT"></lightning-button></span>
+			</div>
+
+
+			<div class="slds-col slds-size_1-of-4 slds-p-around_small">
+				<span><lightning-button label="4" title="4" onclick={handleClick} class="lwc-calculator-button" value="4"></lightning-button></span>
+			</div>
+			<div class="slds-col slds-size_1-of-4 slds-p-around_small">
+				<span><lightning-button label="5" title="5" onclick={handleClick} class="lwc-calculator-button" value="5"></lightning-button></span>
+			</div>
+			<div class="slds-col slds-size_1-of-4 slds-p-around_small">
+				<span><lightning-button label="6" title="6" onclick={handleClick} class="lwc-calculator-button" value="6"></lightning-button></span>
+			</div>
+			<div class="slds-col slds-size_1-of-4 slds-p-around_small">
+				<span><lightning-button variant="brand-outline" label="*" title="*" onclick={handleClick} class="lwc-calculator-button" value="MULTIPLY"></lightning-button></span>
+			</div>
+
+
+			<div class="slds-col slds-size_1-of-4 slds-p-around_small">
+				<span><lightning-button label="1" title="1" onclick={handleClick} class="lwc-calculator-button" value="1"></lightning-button></span>
+			</div>
+			<div class="slds-col slds-size_1-of-4 slds-p-around_small">
+				<span><lightning-button label="2" title="2" onclick={handleClick} class="lwc-calculator-button" value="2"></lightning-button></span>
+			</div>
+			<div class="slds-col slds-size_1-of-4 slds-p-around_small">
+				<span><lightning-button label="3" title="3" onclick={handleClick} class="lwc-calculator-button" value="3"></lightning-button></span>
+			</div>
+			<div class="slds-col slds-size_1-of-4 slds-p-around_small">
+				<span><lightning-button variant="brand-outline" label="/" title="/" onclick={handleClick} class="lwc-calculator-button" value="DEVIDE"></lightning-button></span>
+			</div>
+
+			<div class="slds-col slds-size_2-of-4 slds-p-around_small">
+				<span><lightning-button label="0" title="0" onclick={handleClick} class="lwc-calculator-button" value="0"></lightning-button></span>
+			</div>
+			<div class="slds-col slds-size_1-of-4 slds-p-around_small">
+				<span><lightning-button label="." title="." onclick={handleClick} class="lwc-calculator-button" value="."></lightning-button></span>
+			</div>
+			<div class="slds-col slds-size_1-of-4 slds-p-around_small">
+				<span><lightning-button variant="brand" label="=" title="=" onclick={handleClick} class="lwc-calculator-button" value="="></lightning-button></span>
+			</div>
+		</div>
+		<template if:true={error}>
+			<c-lwc-error-panel errors={error}></c-lwc-error-panel>
+		</template>
+	</div>
+	
+
+
+	
+</template>

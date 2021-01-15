@@ -1,0 +1,31 @@
+<template>
+<lightning-card title="LWC CALCULATION HISTORY" icon-name="custom:custom60">
+        <div class="slds-m-around_medium">
+            <template if:true={calculationHistoryList}>
+                <table class="slds-table lds-table_cell-buffer slds-table_bordered">
+                    <thead>
+                        <th>Date</th>
+                        <th>Number A</th>
+                        <th>Operator</th>
+                        <th>Number B</th>
+                        <th>Result</th>
+                    </thead>
+                    <tbody>
+                        <template for:each={calculationHistoryList} for:item="record">
+                            <tr key={record.Id}>
+                                <td>{record.CreatedDate}</td>
+                                <td>{record.Number_A__c}</td>
+                                <td>{record.Operator__c}</td>
+                                <td>{record.Number_B__c}</td>
+                                <td>{record.Result__c}</td>
+                            </tr>
+                        </template>
+                    </tbody>
+                </table>
+            </template>
+            <template if:true={error}>
+                <c-lwc-error-panel errors={error}></c-lwc-error-panel>
+            </template>
+        </div>
+    </lightning-card>
+</template>

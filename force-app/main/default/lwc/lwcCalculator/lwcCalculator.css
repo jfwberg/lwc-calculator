@@ -1,0 +1,5 @@
+.lwc-calculator-button button{
+    min-height:40px !important;
+    min-width: 40px !important;
+    border: 1px solid red !important;
+}
