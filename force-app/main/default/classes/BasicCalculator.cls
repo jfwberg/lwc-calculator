@@ -20,17 +20,17 @@ public with sharing class BasicCalculator {
 	
 	// Subtract
 	public static Decimal subtract(Decimal a, Decimal b){
-		return a+b;
+		return a-b;
 	}
 	
 	// Devide
 	public static Decimal devide(Decimal a, Decimal b){
-		return a+b;
+		return a/b;
 	}
 	
 	// Multiple
 	public static Decimal multiply(Decimal a, Decimal b){
-		return a+b;
+		return a*b;
 	}
 
 }

@@ -21,8 +21,8 @@ public with sharing class lwc_TestFactory {
 	public static User getRunningUser(String runningUserProfileName, String[] runningUserPermissionSetNames){
 		
 		// Get profile and permission set information
-		Profile profile 			= [SELECT Id FROM Profile 		WHERE Name =  :runningUserProfileName		 LIMIT 1];
-		PermissionSet permissionSet = [SELECT Id FROM PermissionSet WHERE Name IN :runningUserPermissionSetNames LIMIT 100];
+		Profile profile 				= [SELECT Id FROM Profile 		WHERE Name =  :runningUserProfileName		 LIMIT   1];
+		PermissionSet[] permissionSets	= [SELECT Id FROM PermissionSet WHERE Name IN :runningUserPermissionSetNames LIMIT 100];
 
 		// Setup a user, so you can run the test code for a specific profile / permission set
 		// In out best practice we use permission sets, so it's best to test these permission sets accordingly with the proper user Profile
@@ -38,13 +38,23 @@ public with sharing class lwc_TestFactory {
 		runningUser.UserName 		 =	'test_user_' + DateTime.now().getTime() + '@aloha-workbench.com';
 		insert runningUser;
 
-		// Assign the permission set to the running user
-		PermissionSetAssignment psa = new PermissionSetAssignment(
-			AssigneeId		= runningUser.Id,
-			PermissionSetId = permissionSet.Id
-		);
-		insert psa;
+		// List for holding the different PMAs
+		PermissionSetAssignment[] permissionSetAssignments = new PermissionSetAssignment[]{};
 		
+		// Assign the permission set to the running user
+		for(PermissionSet permissionSet : permissionSets){
+			permissionSetAssignments.add(
+				new PermissionSetAssignment(
+					AssigneeId		= runningUser.Id,
+					PermissionSetId = permissionSet.Id
+				)
+			);
+		}
+		
+		// Insert all the new permission set assignments
+		insert permissionSetAssignments;
+		
+		// Return the running user object
 		return runningUser;
 	}
 
