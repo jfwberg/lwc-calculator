@@ -1,0 +1,1 @@
+call sfdx force:source:convert -r "../force-app" -d "../mdapi-source-out" > "../deployment-output/convert.json"

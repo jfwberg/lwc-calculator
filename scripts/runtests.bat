@@ -1,0 +1,1 @@
+call sfdx force:apex:test:run -l RunLocalTests -d "../deployment-output" -u dvps-tst-sit --json

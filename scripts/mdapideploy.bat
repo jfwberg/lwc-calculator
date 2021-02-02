@@ -1,0 +1,1 @@
+call sfdx force:mdapi:deploy -d "../mdapi-source-out" -l "RunSpecifiedTests" -r "BasicCalculatorTest,lwc_CalculatorTest,lwc_CalculationHistoryTest,lwc_CalculatorTestBad" -c -u "dvps-tst-sit" -w -1 --verbose --json > "../deployment-output/mdapideploy.json"

@@ -1,0 +1,1 @@
+call sfdx force:source:deploy -p "force-app" -l RunLocalTests --json > "deployment-output/deployment-details.txt"

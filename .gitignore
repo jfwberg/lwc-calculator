@@ -6,6 +6,7 @@
 .sfdx/
 .localdevserver/
 mdapi-source-out/
+deployment-output/
 # LWC VSCode autocomplete
 **/lwc/jsconfig.json
 
